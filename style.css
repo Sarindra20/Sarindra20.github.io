@@ -10,7 +10,9 @@
   --accent-hover: #1f6feb;
   --largeur-barre: 240px;
 }
-
+.span{
+    color: #1f6feb;
+}
 /* ===== 2. BASE ===== */
 * {
   box-sizing: border-box;
