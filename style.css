@@ -1,0 +1,225 @@
+
+:root {
+  --fond: #151a21;
+  --fond-barre: #1b222b;
+  --carte: #1f2832;
+  --bordure: #2c3744;
+  --texte: #e8edf2;
+  --texte-doux: #9aa9b8;
+  --accent: #4da3ff;
+  --largeur-barre: 90px;
+}
+
+/* ===== 2. BASE ===== */
+* {
+  box-sizing: border-box;   /* le padding et la bordure restent dans la largeur */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;  /* défilement doux vers les ancres */
+}
+
+body {
+  background: var(--fond);
+  color: var(--texte);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===== 3. BARRE LATÉRALE ===== */
+.sidebar {
+  position: fixed;          /* reste à l'écran quand on défile */
+  top: 0;
+  left: 0;
+  width: var(--largeur-barre);
+  height: 100vh;
+  background: var(--fond-barre);
+  border-right: 1px solid var(--bordure);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* menu en haut, bloc du bas en bas */
+  padding: 20px 8px;
+  text-align: center;
+}
+
+.sidebar nav li a {
+  display: block;
+  padding: 12px 4px;
+  color: var(--texte-doux);
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.sidebar nav li a:hover {
+  color: var(--texte);
+  background: var(--carte);
+  text-decoration: none;
+}
+
+.sidebar-bottom li a {
+  display: block;
+  padding: 6px 0;
+  font-size: 0.8rem;
+}
+
+.sidebar-bottom img {
+  width: 48px;
+  height: 48px;
+  margin: 12px auto 0;
+  border-radius: 50%;       /* photo ronde */
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+/* ===== 4. CONTENU PRINCIPAL ===== */
+main {
+  margin-left: var(--largeur-barre);  /* laisse la place à la barre fixe */
+  max-width: 1000px;
+  padding: 60px 32px;
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);  /* taille qui s'adapte à l'écran */
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+header p {
+  color: var(--texte-doux);
+  font-size: 1.15rem;
+  max-width: 55ch;
+}
+
+section {
+  margin-top: 64px;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+}
+
+/* ===== 5. EXPERTISE : grille de cartes ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 colonnes égales */
+  gap: 20px;
+}
+
+.card {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.card img {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--texte-doux);
+  font-size: 0.95rem;
+}
+
+/* ===== 6. PROJETS : image à gauche, texte à droite ===== */
+.project {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.project img {
+  width: 200px;             /* largeur fixe de l'image */
+  flex-shrink: 0;           /* l'image ne se fait pas écraser */
+  border-radius: 6px;
+}
+
+.project h3 {
+  margin-bottom: 6px;
+}
+
+.project p {
+  color: var(--texte-doux);
+}
+
+/* ===== 7. MOBILE ===== */
+@media (max-width: 800px) {
+  .sidebar {
+    position: static;       /* la barre redevient un bloc normal en haut */
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    border-right: none;
+    border-bottom: 1px solid var(--bordure);
+    padding: 10px;
+  }
+
+  .sidebar nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sidebar-bottom {
+    display: none;          /* on masque le bas de la barre sur mobile */
+  }
+
+  main {
+    margin-left: 0;
+    padding: 32px 18px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
