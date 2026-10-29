@@ -82,11 +82,13 @@ ul {
   transition: all 0.2s ease;
 }
 
-.sidebar nav li a:hover {
+.sidebar nav li a:hover,
+.sidebar nav li a.active {
   color: var(--texte);
   background: var(--carte);
   text-decoration: none;
   transform: translateX(4px);
+  border-left: 3px solid var(--accent);
 }
 
 .sidebar-bottom {
@@ -139,6 +141,7 @@ main {
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 20px;
+  min-height: 1.6rem; /* Empêche le texte de sauter pendant l'animation */
 }
 
 .bio {
@@ -164,6 +167,18 @@ h2 {
   margin-bottom: 24px;
   border-bottom: 1px solid var(--bordure);
   padding-bottom: 8px;
+}
+
+/* ===== ANIMATION DE DÉFILEMENT (REVEAL) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===== 5. EXPERTISE : Grille de cartes ===== */
@@ -253,7 +268,7 @@ h2 {
   font-weight: 600;
 }
 
-/* ===== STLES COMPLÉMENTAIRES ===== */
+/* ===== STYLES COMPLÉMENTAIRES ===== */
 .about-card, .contact-box {
   background: var(--carte);
   border: 1px solid var(--bordure);

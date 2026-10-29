@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ===== BARRE LATÉRALE ===== -->
+    <!-- ===== BARRE LATÉRALE (Ordre corrigé pour correspondre au main) ===== -->
     <aside class="sidebar">
       <div class="sidebar-top">
         <div class="logo-name">Kanto</div>
         <nav>
           <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#apropos">À propos</a></li>
-            <li><a href="#experience">Expérience</a></li>
-            <li><a href="#projets">Projets</a></li>
+            <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+            <li><a href="#apropos" class="nav-link">À propos</a></li>
+            <li><a href="#expertise" class="nav-link">Expertise</a></li>
+            <li><a href="#projets" class="nav-link">Projets</a></li>
+            <li><a href="#experience" class="nav-link">Expérience</a></li>
             <li><a href="cv.pdf" target="_blank">CV</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -36,7 +37,7 @@
     <main>
       <header id="accueil" class="hero-section">
         <h1>Portfolio de Kanto</h1>
-        <p class="subtitle">Étudiante en Informatique – Administration Système & Réseau</p>
+        <p class="subtitle" id="typing-text"></p>
         <p class="bio">
           Je suis Kanto, étudiante âgée de 18 ans en deuxième année de licence à l'École Nationale d'Informatique de Fianarantsoa, 
           dans le parcours <strong>ISII</strong> (Ingénierie des Systèmes et d'Information Intégrée). 
@@ -45,7 +46,7 @@
         <p class="devise">Projet, Alternance, Stage ; travaillons ensemble !</p>
       </header>
 
-      <section id="apropos">
+      <section id="apropos" class="reveal">
         <h2>À propos</h2>
         <div class="about-card">
           <p>
@@ -56,7 +57,7 @@
         </div>
       </section>
 
-      <section id="expertise">
+      <section id="expertise" class="reveal">
         <h2>Expertise technique</h2>
 
         <div class="grid">
@@ -98,7 +99,7 @@
         </div>
       </section>
 
-      <section id="projets">
+      <section id="projets" class="reveal">
         <h2>Projets récents</h2>
 
         <article class="project">
@@ -118,7 +119,7 @@
         </article>
       </section>
 
-      <section id="experience">
+      <section id="experience" class="reveal">
         <h2>Expérience & Formation</h2>
         <div class="timeline">
           <div class="timeline-item" style="margin-bottom: 24px;">
@@ -135,13 +136,16 @@
         </div>
       </section>
 
-      <section id="contact">
+      <section id="contact" class="reveal">
         <h2>Contact</h2>
         <div class="contact-box">
           <p>Une opportunité de stage ou un projet à confier ? N'hésitez pas à me contacter !</p>
-          <a href="mailto:kanto3heriniaina@gmail.com" class="btn-contact">Envoyer un e-mail</a>
+          <a href="mailto:ton-email@example.com" class="btn-contact">Envoyer un e-mail</a>
         </div>
       </section>
     </main>
+
+    <!-- Fichier JavaScript externe -->
+    <script src="script.js"></script>
   </body>
 </html>
