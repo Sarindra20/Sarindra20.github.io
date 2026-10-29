@@ -3,123 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kanto-Portfolio</title>
+    <title>Kanto - Portfolio | Administratrice Système & Réseau</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- ===== BARRE LATÉRALE ===== -->
     <aside class="sidebar">
-      <nav>
-        <ul>
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a href="#experience">Expérience</a></li>
-          <li><a href="#projets">Projets</a></li>
-          <li><a href="cv.pdf">CV</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="sidebar-top">
+        <div class="logo-name">Kanto</div>
+        <nav>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#experience">Expérience</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="cv.pdf" target="_blank">CV</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
 
       <div class="sidebar-bottom">
-        <ul>
-          <li><a href="https://github.com/Sarindra20">GitHub</a></li>
-          <li>
-            <a href="https://www.linkedin.com/in/[ton-profil]">LinkedIn</a>
-          </li>
+        <ul class="social-links">
+          <li><a href="https://github.com/Sarindra20" target="_blank">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/[ton-profil]" target="_blank">LinkedIn</a></li>
         </ul>
-        <img src="source/kali.png" alt="Portrait de [Ton prénom]" />
+        <img src="source/anya.jfif" alt="Portrait de Kanto" />
       </div>
     </aside>
 
     <!-- ===== CONTENU PRINCIPAL ===== -->
     <main>
-      <header id="accueil">
+      <header id="accueil" class="hero-section">
         <h1>Portfolio de Kanto</h1>
-        <p>
-          Je suis Kanto,étudiante en Informatique <br />Je suis une jeune
-          étudiante agée de 18 ans en deuxième année de licence à l'Ecole
-          Nationale d'Informatique Fianarantsoa <br />Dans cette école
-          ingénieuse, j'ai comme parcours le ISII ou (Ingénieurie des SYstèmes
-          et d'Information Intégrée) <br />J'ai aquis plusieurs connaissance sur
-          le développement et l'administration système et réseau mais je suis
-          mieux appropriés dans l'installation, la supervision et la
-          surveillance des infrastructures. <br /><br />Je suis actuemllement à
-          la recherche d'un stage pour mettre en pratique mes compétence
-          récemment cités.
+        <p class="subtitle">Étudiante en Informatique – Administration Système & Réseau</p>
+        <p class="bio">
+          Je suis Kanto, étudiante âgée de 18 ans en deuxième année de licence à l'École Nationale d'Informatique de Fianarantsoa, 
+          dans le parcours <strong>ISII</strong> (Ingénierie des Systèmes et d'Information Intégrée). 
+          Passionnée par l'infrastructure et la sécurité, je me spécialise dans l'installation, la supervision et la surveillance des systèmes.
         </p>
-        <br />
         <p class="devise">Projet, Alternance, Stage ; travaillons ensemble !</p>
       </header>
 
+      <section id="apropos">
+        <h2>À propos</h2>
+        <div class="about-card">
+          <p>
+            Curieuse et rigoureuse, j'acquiers des compétences solides à la fois dans le développement et dans l'administration 
+            système et réseau. Mon profil s'oriente particulièrement vers la mise en place d'environnements sécurisés et le monitoring proactif. 
+            Je suis actuellement à la recherche d'un stage pour mettre en pratique mes compétences techniques.
+          </p>
+        </div>
+      </section>
+
       <section id="expertise">
-        <h2>Expertise</h2>
+        <h2>Expertise technique</h2>
 
         <div class="grid">
-          <!-- Une carte : à répéter 6 fois -->
           <article class="card">
-            <img src="images/icone-1.svg" alt="" />
+            <img src="source/kali-linux (1).png" alt="Kali Linux" />
             <h3>Kali Linux</h3>
-            <p>
-              <b>Kali</b> est une distribution Linux spécialisée dans les tests
-              de sécurité. Elle embarque des centaines d’outils pour simuler des
-              attaques (scan réseau, force brute, etc.). Dans ton lab, c’est la
-              machine qui joue l’attaquant
-            </p>
+            <p>Distribution spécialisée en tests de sécurité et simulation d'attaques (scan réseau, tests d'intrusion).</p>
           </article>
 
           <article class="card">
-            <img src="images/icone-1.svg" alt="" />
+            <img src="source/WS.png" alt="Windows Server" />
             <h3>Windows Server</h3>
-            <p>
-              <b>Windows Server</b> est un système d'exploitation conçu par
-              Microsoft pour les environnements d'entreprise <br />Associé au
-              rôle <b>AD DS</b> (Active Directory Domain Services), il devient
-              la pierre angulaire de la gestion des parcs informatiques
-            </p>
+            <p>Gestion d'environnements d'entreprise et administration des rôles AD DS (Active Directory Domain Services).</p>
           </article>
 
           <article class="card">
-            <img src="images/icone-1.svg" alt="" />
-            <h3>Git et GitHub</h3>
-            <p>
-              <b>Git</b> (L'outil technique) : C'est un logiciel de contrôle de
-              version distribué que tu installes sur ton ordinateur <br />
-              <b>GitHub</b> (La plateforme collaborative) : C'est un service web
-              hébergé dans le cloud qui sert de point de rassemblement pour
-              stocker tes dépôts Git à distance.
-            </p>
+            <img src="source/git.png" alt="Git & GitHub" />
+            <h3>Git & GitHub</h3>
+            <p>Contrôle de version distribué, suivi d'historique et collaboration sur le code source.</p>
           </article>
 
           <article class="card">
-            <img src="images/icone-1.svg" alt="" />
-            <h3>Wazuh</h3>
-            <p>
-              <b>Wazuh</b> est une plateforme open-source de sécurité, de
-              surveillance et de détection des menaces. Elle permet de
-              collecter, d'analyser et de corréler les journaux (logs) de
-              l'ensemble d'un système d'information en temps réel.
-            </p>
+            <img src="source/wazuh.png" alt="Wazuh" />
+            <h3>Wazuh SIEM</h3>
+            <p>Plateforme open-source de sécurité, analyse de journaux (logs) et détection d'incidents en temps réel.</p>
           </article>
 
           <article class="card">
-            <img src="images/icone-1.svg" alt="" />
+            <img src="source/javascript-light.png" alt="Développement" />
             <h3>Développement</h3>
-            <p>
-              <li>HTML CSS</li>
-              <li>JavaScript</li>
-              <li>PHP</li>
-              <li>Dart (débutante)</li>
-            </p>
+            <p>Maitrise de HTML, CSS, JavaScript, PHP et notions de développement mobile en Dart (Flutter).</p>
           </article>
 
           <article class="card">
-            <img src="images/icone-1.svg" alt="" />
-            <h3>Gestion Base de donné</h3>
-            <p>
-              <li>MySQL</li>
-              <li>PostgreSQL</li>
-              <li>SQLite</li>
-            </p>
+            <img src="source/sqlitebrowser.png" alt="Bases de données" />
+            <h3>Bases de données</h3>
+            <p>Conception et manipulation de données avec MySQL, PostgreSQL et SQLite.</p>
           </article>
         </div>
       </section>
@@ -127,14 +101,46 @@
       <section id="projets">
         <h2>Projets récents</h2>
 
-        <!-- Un projet : à répéter pour chaque projet -->
         <article class="project">
-          <img src="images/projet-1.png" alt="[Description de l’image]" />
-          <div>
-            <h3>[Nom du projet]</h3>
-            <p>[Description en 1 ou 2 phrases]</p>
+          <img src="images/projet-1.png" alt="Aperçu du projet Server Watch" />
+          <div class="project-info">
+            <h3>Server Watch & Détection d'attaques</h3>
+            <p>
+              Mise en place d'un laboratoire de supervision avec Ubuntu Server, Wazuh et Windows Server Active Directory 
+              pour la détection de tentatives de force brute et le monitoring d'infrastructure.
+            </p>
+            <div class="tags">
+              <span>Wazuh</span>
+              <span>Active Directory</span>
+              <span>Ubuntu Server</span>
+            </div>
           </div>
         </article>
+      </section>
+
+      <section id="experience">
+        <h2>Expérience & Formation</h2>
+        <div class="timeline">
+          <div class="timeline-item" style="margin-bottom: 24px;">
+            <h3>L2 Informatique - Parcours ISII</h3>
+            <span class="date" style="color: var(--accent); font-size: 0.9rem;">École Nationale d'Informatique (ENI) Fianarantsoa</span>
+            <p style="color: var(--texte-doux); margin-top: 6px;">Formation approfondie en génie logiciel, réseaux, administration système et sécurité informatique.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>L1 à l'École Nationale d'Informatique</h3>
+            <span class="date" style="color: var(--accent); font-size: 0.9rem;">ENI Fianarantsoa</span>
+            <p style="color: var(--texte-doux); margin-top: 6px;">Formation pour débuter dans le monde de l'informatique, acquisition des expériences de base utiles dans le domaine informatique.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-box">
+          <p>Une opportunité de stage ou un projet à confier ? N'hésitez pas à me contacter !</p>
+          <a href="mailto:kanto3heriniaina@gmail.com" class="btn-contact">Envoyer un e-mail</a>
+        </div>
       </section>
     </main>
   </body>
