@@ -1,75 +1,141 @@
-
-PortFolio.html
-100 %
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kanto-Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kanto-Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ===== BARRE LATÉRALE ===== -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#experience">Expérience</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="cv.pdf">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-  <!-- ===== BARRE LATÉRALE ===== -->
-  <aside class="sidebar">
-
-    <nav>
-      <ul>
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#experience">Expérience</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="cv.pdf">CV</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-bottom">
-      <ul>
-        <li><a href="https://github.com/[ton-pseudo]">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/[ton-profil]">LinkedIn</a></li>
-      </ul>
-      <img src="images/photo.jpg" alt="Portrait de [Ton prénom]">
-    </div>
-
-  </aside>
-
-  <!-- ===== CONTENU PRINCIPAL ===== -->
-  <main>
-
-    <header id="accueil">
-      <h1>Portfolio de [Ton prénom]</h1>
-      <p>[Ta phrase de présentation]</p>
-    </header>
-
-    <section id="expertise">
-      <h2>Expertise</h2>
-
-      <div class="grid">
-        <!-- Une carte : à répéter 6 fois -->
-        <article class="card">
-          <img src="images/icone-1.svg" alt="">
-          <h3>[Compétence]</h3>
-          <p>[Description courte]</p>
-        </article>
+      <div class="sidebar-bottom">
+        <ul>
+          <li><a href="https://github.com/Sarindra20">GitHub</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/[ton-profil]">LinkedIn</a>
+          </li>
+        </ul>
+        <img src="source/kali.png" alt="Portrait de [Ton prénom]" />
       </div>
-    </section>
+    </aside>
 
-    <section id="projets">
-      <h2>Projets récents</h2>
+    <!-- ===== CONTENU PRINCIPAL ===== -->
+    <main>
+      <header id="accueil">
+        <h1>Portfolio de Kanto</h1>
+        <p>
+          Je suis Kanto,étudiante en Informatique <br />Je suis une jeune
+          étudiante agée de 18 ans en deuxième année de licence à l'Ecole
+          Nationale d'Informatique Fianarantsoa <br />Dans cette école
+          ingénieuse, j'ai comme parcours le ISII ou (Ingénieurie des SYstèmes
+          et d'Information Intégrée) <br />J'ai aquis plusieurs connaissance sur
+          le développement et l'administration système et réseau mais je suis
+          mieux appropriés dans l'installation, la supervision et la
+          surveillance des infrastructures. <br /><br />Je suis actuemllement à
+          la recherche d'un stage pour mettre en pratique mes compétence
+          récemment cités.
+        </p>
+        <br />
+        <p class="devise">Projet, Alternance, Stage ; travaillons ensemble !</p>
+      </header>
 
-      <!-- Un projet : à répéter pour chaque projet -->
-      <article class="project">
-        <img src="images/projet-1.png" alt="[Description de l’image]">
-        <div>
-          <h3>[Nom du projet]</h3>
-          <p>[Description en 1 ou 2 phrases]</p>
+      <section id="expertise">
+        <h2>Expertise</h2>
+
+        <div class="grid">
+          <!-- Une carte : à répéter 6 fois -->
+          <article class="card">
+            <img src="images/icone-1.svg" alt="" />
+            <h3>Kali Linux</h3>
+            <p>
+              <b>Kali</b> est une distribution Linux spécialisée dans les tests
+              de sécurité. Elle embarque des centaines d’outils pour simuler des
+              attaques (scan réseau, force brute, etc.). Dans ton lab, c’est la
+              machine qui joue l’attaquant
+            </p>
+          </article>
+
+          <article class="card">
+            <img src="images/icone-1.svg" alt="" />
+            <h3>Windows Server</h3>
+            <p>
+              <b>Windows Server</b> est un système d'exploitation conçu par
+              Microsoft pour les environnements d'entreprise <br />Associé au
+              rôle <b>AD DS</b> (Active Directory Domain Services), il devient
+              la pierre angulaire de la gestion des parcs informatiques
+            </p>
+          </article>
+
+          <article class="card">
+            <img src="images/icone-1.svg" alt="" />
+            <h3>Git et GitHub</h3>
+            <p>
+              <b>Git</b> (L'outil technique) : C'est un logiciel de contrôle de
+              version distribué que tu installes sur ton ordinateur <br />
+              <b>GitHub</b> (La plateforme collaborative) : C'est un service web
+              hébergé dans le cloud qui sert de point de rassemblement pour
+              stocker tes dépôts Git à distance.
+            </p>
+          </article>
+
+          <article class="card">
+            <img src="images/icone-1.svg" alt="" />
+            <h3>Wazuh</h3>
+            <p>
+              <b>Wazuh</b> est une plateforme open-source de sécurité, de
+              surveillance et de détection des menaces. Elle permet de
+              collecter, d'analyser et de corréler les journaux (logs) de
+              l'ensemble d'un système d'information en temps réel.
+            </p>
+          </article>
+
+          <article class="card">
+            <img src="images/icone-1.svg" alt="" />
+            <h3>Développement</h3>
+            <p>
+              <li>HTML CSS</li>
+              <li>JavaScript</li>
+              <li>PHP</li>
+              <li>Dart (débutante)</li>
+            </p>
+          </article>
+
+          <article class="card">
+            <img src="images/icone-1.svg" alt="" />
+            <h3>Gestion Base de donné</h3>
+            <p>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>SQLite</li>
+            </p>
+          </article>
         </div>
-      </article>
-    </section>
+      </section>
 
-  </main>
+      <section id="projets">
+        <h2>Projets récents</h2>
 
-</body>
+        <!-- Un projet : à répéter pour chaque projet -->
+        <article class="project">
+          <img src="images/projet-1.png" alt="[Description de l’image]" />
+          <div>
+            <h3>[Nom du projet]</h3>
+            <p>[Description en 1 ou 2 phrases]</p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
