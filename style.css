@@ -10,8 +10,8 @@
   --accent-hover: #1f6feb;
   --largeur-barre: 240px;
 }
-.span{
-    color: #1f6feb;
+.span {
+  color: #1f6feb;
 }
 /* ===== 2. BASE ===== */
 * {
@@ -27,7 +27,11 @@ html {
 body {
   background: var(--fond);
   color: var(--texte);
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   line-height: 1.6;
 }
 
@@ -73,6 +77,15 @@ ul {
   text-align: center;
   letter-spacing: 1px;
 }
+.photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%; /* forme ronde */
+  object-fit: cover; /* remplit le cercle sans déformer la photo */
+  object-position: center top; /* garde le visage cadré en haut */
+  border: 3px solid var(--accent);
+  margin: 0 auto; /* centre la photo dans la barre */
+}
 
 .sidebar nav li a {
   display: block;
@@ -114,7 +127,28 @@ ul {
 .social-links a:hover {
   color: var(--accent);
 }
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--bordure);
+  border-radius: 50%;
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
 
+.social-links a:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.social-links svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;   /* le logo prend la couleur du lien */
+}
 .sidebar-bottom img {
   width: 56px;
   height: 56px;
@@ -175,7 +209,9 @@ h2 {
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 .reveal.active {
@@ -196,7 +232,9 @@ h2 {
   border-radius: 12px;
   padding: 24px;
   text-align: left;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .card:hover {
@@ -271,7 +309,8 @@ h2 {
 }
 
 /* ===== STYLES COMPLÉMENTAIRES ===== */
-.about-card, .contact-box {
+.about-card,
+.contact-box {
   background: var(--carte);
   border: 1px solid var(--bordure);
   padding: 24px;
@@ -298,11 +337,56 @@ h2 {
   background: #79c0ff;
   text-decoration: none;
 }
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;            /* passe en colonne si l'écran est étroit */
+  margin-top: 20px;
+}
 
+.contact-actions .btn-contact {
+  margin-top: 0;              /* annule l'ancien espace au-dessus du bouton */
+}
+
+.tel_class {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 32px;
+  border-left: 1px solid var(--bordure);   /* trait de séparation */
+  text-align: left;
+}
+
+.tel_class span {
+  color: var(--texte-doux);
+  font-size: 0.8rem;
+}
+
+.tel_class a {
+  display: flex;
+  align-items: center;
+  gap: 10px;                 /* espace entre le drapeau et le numéro */
+  color: var(--texte);
+  font-weight: 500;
+}
+
+.flag {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid var(--bordure);   /* le blanc reste visible sur fond sombre */
+  flex-shrink: 0;
+}
+
+.tel_class a:hover {
+  color: var(--accent);
+}
 /* ===== 7. RESPONSIVE MOBILE ===== */
 @media (max-width: 890px) {
-   .sidebar {
-    position: sticky;      /* reste collée en haut quand on défile */
+  .sidebar {
+    position: sticky; /* reste collée en haut quand on défile */
     top: 0;
     width: 100%;
     height: auto;
@@ -311,9 +395,13 @@ h2 {
     border-right: none;
     border-bottom: 1px solid var(--bordure);
     padding: 12px 20px;
-    z-index: 100;          /* passe au-dessus du contenu */
+    z-index: 100; /* passe au-dessus du contenu */
   }
-
+  .photo {
+    width: 44px;
+    height: 44px;
+    border-width: 2px;
+  }
   /* évite que le titre d'une section soit caché sous la barre après un clic sur le menu */
   section,
   header {
