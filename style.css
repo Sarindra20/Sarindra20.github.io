@@ -301,8 +301,9 @@ h2 {
 
 /* ===== 7. RESPONSIVE MOBILE ===== */
 @media (max-width: 890px) {
-  .sidebar {
-    position: static;
+   .sidebar {
+    position: sticky;      /* reste collée en haut quand on défile */
+    top: 0;
     width: 100%;
     height: auto;
     flex-direction: row;
@@ -310,8 +311,14 @@ h2 {
     border-right: none;
     border-bottom: 1px solid var(--bordure);
     padding: 12px 20px;
+    z-index: 100;          /* passe au-dessus du contenu */
   }
 
+  /* évite que le titre d'une section soit caché sous la barre après un clic sur le menu */
+  section,
+  header {
+    scroll-margin-top: 90px;
+  }
   .logo-name {
     margin-bottom: 0;
   }
