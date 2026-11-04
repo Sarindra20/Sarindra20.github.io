@@ -55,10 +55,14 @@ window.addEventListener("scroll", () => {
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= sectionTop - 150) {
+    if (window.scrollY >= sectionTop - 150) {
       current = section.getAttribute("id");
     }
+
+      // en bas de page, on force le dernier lien
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+    current = "contact";
+  }
   });
 
   navLinks.forEach((link) => {

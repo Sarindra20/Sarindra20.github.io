@@ -166,7 +166,8 @@ main {
 }
 
 .hero-section h1 {
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--texte);
@@ -435,4 +436,11 @@ h2 {
     width: 100%;
     height: auto;
   }
+
+    .project > a {
+    width: 100%;
+  }
+}
+.project > a {
+  flex-shrink: 0;
 }
