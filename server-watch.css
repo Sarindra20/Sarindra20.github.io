@@ -1,0 +1,124 @@
+/* ===== PAGE D'UN PROJET (à charger après style.css) ===== */
+.page-projet {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+.retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 8px 18px;
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 999px;          /* forme de pilule */
+  color: var(--texte);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.retour span {
+  transition: transform 0.2s;
+}
+
+.retour:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.retour:hover span {
+  transform: translateX(-4px);   /* la flèche recule au survol */
+}
+
+.retour:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+.page-projet h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.page-projet h2 {
+  margin-top: 40px;
+}
+
+.intro {
+  color: var(--texte-doux);
+  max-width: 65ch;
+  margin-bottom: 16px;
+}
+
+/* ===== GALERIE DE CAPTURES ===== */
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.galerie figure {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 12px;
+  padding: 12px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.galerie figure:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.galerie img {
+  width: 100%;
+  aspect-ratio: 9 / 19;       /* format téléphone : toutes les cartes ont la même hauteur */
+  object-fit: contain;        /* montre la capture entière sans la couper */
+  background: var(--fond);
+  border-radius: 8px;
+}
+
+.galerie figcaption {
+  margin-top: 10px;
+  color: var(--texte-doux);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ===== PETITES RÈGLES POUR LA CARTE DE index.html ===== */
+.voir-plus {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.project-info h3 a {
+  color: inherit;
+}
+
+.project-info h3 a:hover {
+  color: var(--accent);
+}
+
+.project > a {
+  flex-shrink: 0;
+}
+
+@media (max-width: 890px) {
+  .project > a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .galerie {
+    grid-template-columns: repeat(2, 1fr);   /* 2 captures par ligne sur téléphone */
+    gap: 12px;
+  }
+}
