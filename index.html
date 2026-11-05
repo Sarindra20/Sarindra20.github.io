@@ -12,7 +12,17 @@
     <aside class="sidebar">
       <div class="sidebar-top">
         <div class="logo-name">
-          <img src="source/Anya2.jfif" alt="identity" class="photo" />
+          <button
+            class="photo-btn"
+            id="photo-profil"
+            aria-label="Agrandir ma photo"
+          >
+            <img
+              src="source/Anya2.jfif"
+              alt="Portrait de Kanto"
+              class="photo"
+            />
+          </button>
         </div>
         <nav>
           <ul>
@@ -31,7 +41,7 @@
         <ul class="social-links">
           <li>
             <a
-              href="https://github.com/Sarindra20"
+              href="LienGit"
               target="_blank"
               rel="noopener"
               aria-label="GitHub"
@@ -64,7 +74,18 @@
           spécialise dans l'installation, la supervision et la surveillance des
           systèmes.
         </p>
-        <p class="devise">Projet, alternance, stage ; travaillons ensemble !</p>
+        <div class="devise-bloc">
+          <p class="devise-titre">Travaillons ensemble :</p>
+          <div class="devise-boutons">
+            <button class="btn-choix btn-projet" data-type="projet">
+              Projet
+            </button>
+            <button class="btn-choix btn-alternance" data-type="alternance">
+              Alternance
+            </button>
+            <button class="btn-choix btn-stage" data-type="stage">Stage</button>
+          </div>
+        </div>
       </header>
 
       <section id="apropos" class="reveal">
@@ -146,7 +167,10 @@
 
         <article class="project">
           <a href="server-watch.html">
-            <img src="source/Liste.png" alt="Aperçu du projet Server Watch" />
+            <img
+              src="source/AppercuSW.png"
+              alt="Aperçu du projet Server Watch"
+            />
           </a>
           <div class="project-info">
             <h3><a href="server-watch.html">Server Watch</a></h3>
@@ -163,6 +187,32 @@
               <span>FastAPI</span>
               <span>PostgreSQL</span>
               <span>Python</span>
+            </div>
+          </div>
+        </article>
+        <br />
+        <article class="project">
+          <img
+            src="source/wazuhD.png"
+            alt="Tableau de bord Wazuh pendant la détection d'une attaque"
+          />
+          <div class="project-info">
+            <h3>Détection d'une attaque sur Active Directory avec Wazuh</h3>
+            <p>
+              Projet de stage réalisé en binôme chez Groupe SOCOTA : étude et
+              détection d'une attaque sur un environnement Windows Active
+              Directory par corrélation d'événements.
+              <br />
+              Lab de 4 machines virtuelles sous VirtualBox. J'ai installé et
+              géré les deux serveurs : le contrôleur de domaine Windows Server
+              2022 et le serveur Ubuntu qui héberge Wazuh.
+            </p>
+            <div class="tags">
+              <span>Wazuh</span>
+              <span>Active Directory</span>
+              <span>Windows Server 2022</span>
+              <span>Ubuntu Server</span>
+              <span>VirtualBox</span>
             </div>
           </div>
         </article>
@@ -239,7 +289,7 @@
           </p>
 
           <div class="contact-actions">
-            <a href="mailto:kanto3heriniaina@gmail.com" class="btn-contact"
+            <a href="mailto:kanto@gmail.com" class="btn-contact"
               >Envoyer un e-mail</a
             >
             <div class="tel_class">
@@ -277,7 +327,21 @@
         </div>
       </section>
     </main>
-
+    <dialog id="photo-modal" class="photo-modal" aria-label="Photo agrandie">
+      <button class="photo-close" aria-label="Fermer">×</button>
+      <img src="source/Anya2.jfif" alt="Portrait de Kanto" />
+    </dialog>
+    <dialog id="contact-modal" class="contact-modal" aria-labelledby="modal-titre">
+  <div class="modal-contenu">
+    <button type="button" class="modal-close" aria-label="Fermer">×</button>
+    <h3 id="modal-titre"></h3>
+    <p id="modal-intro"></p>
+    <form id="modal-form">
+      <div id="modal-champs"></div>
+      <button type="submit" class="btn-contact">Préparer mon e-mail</button>
+    </form>
+  </div>
+</dialog>
     <!-- Fichier JavaScript externe -->
     <script src="script.js"></script>
   </body>

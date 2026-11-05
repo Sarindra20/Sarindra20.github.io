@@ -72,3 +72,127 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+// ==========================================
+// 4. PHOTO AGRANDIE
+// ==========================================
+const photoBtn = document.getElementById("photo-profil");
+const photoModal = document.getElementById("photo-modal");
+const photoClose = document.querySelector(".photo-close");
+
+if (photoBtn && photoModal && photoClose) {
+  photoBtn.addEventListener("click", () => photoModal.showModal());
+  photoClose.addEventListener("click", () => photoModal.close());
+
+  // un clic sur le fond sombre ferme aussi la fenêtre
+  photoModal.addEventListener("click", (e) => {
+    if (e.target === photoModal) photoModal.close();
+  });
+}
+// ==========================================
+// 5. BOUTONS PROJET / ALTERNANCE / STAGE
+// ==========================================
+const EMAIL = "kanto3heriniaina@gmail.com";
+
+const CHOIX = {
+  projet: {
+    couleur: "#58a6ff",
+    titre: "Un projet à me confier ?",
+    intro: "Décrivez votre besoin en quelques lignes.",
+    sujet: "Proposition de projet",
+    champs: [
+      { id: "nom", label: "Votre nom", type: "text", requis: true },
+      { id: "projet", label: "Nom ou thème du projet", type: "text", requis: true },
+      { id: "desc", label: "Description du besoin", type: "textarea", requis: true },
+      { id: "delai", label: "Délai souhaité", type: "text" },
+    ],
+  },
+  alternance: {
+    couleur: "#a371f7",
+    titre: "Une offre d'alternance ?",
+    intro: "Présentez le poste et l'entreprise.",
+    sujet: "Proposition d'alternance",
+    champs: [
+      { id: "nom", label: "Votre nom", type: "text", requis: true },
+      { id: "entreprise", label: "Entreprise", type: "text", requis: true },
+      { id: "missions", label: "Missions proposées", type: "textarea", requis: true },
+      { id: "rythme", label: "Rythme (ex. 3 semaines / 1 semaine)", type: "text" },
+      { id: "duree", label: "Durée du contrat", type: "text" },
+    ],
+  },
+  stage: {
+    couleur: "#3fb950",
+    titre: "Une proposition de stage ?",
+    intro: "Présentez le sujet et les dates.",
+    sujet: "Proposition de stage",
+    champs: [
+      { id: "nom", label: "Votre nom", type: "text", requis: true },
+      { id: "entreprise", label: "Entreprise", type: "text", requis: true },
+      { id: "sujet", label: "Sujet ou missions du stage", type: "textarea", requis: true },
+      { id: "dates", label: "Dates ou durée", type: "text" },
+    ],
+  },
+};
+
+const modal = document.getElementById("contact-modal");
+const modalForm = document.getElementById("modal-form");
+const modalChamps = document.getElementById("modal-champs");
+let choixActuel = null;
+
+function ouvrirModal(type) {
+  const c = CHOIX[type];
+  if (!c) return;
+  choixActuel = type;
+
+  document.getElementById("modal-titre").textContent = c.titre;
+  document.getElementById("modal-intro").textContent = c.intro;
+  modal.querySelector(".modal-contenu").style.setProperty("--couleur-modal", c.couleur);
+
+  modalChamps.replaceChildren();
+  c.champs.forEach((ch) => {
+    const bloc = document.createElement("div");
+    bloc.className = "champ";
+
+    const label = document.createElement("label");
+    label.htmlFor = "champ-" + ch.id;
+    label.textContent = ch.label + (ch.requis ? " *" : "");
+
+    const saisie = document.createElement(ch.type === "textarea" ? "textarea" : "input");
+    saisie.id = "champ-" + ch.id;
+    saisie.name = ch.id;
+    if (ch.type !== "textarea") saisie.type = "text";
+    if (ch.requis) saisie.required = true;
+
+    bloc.append(label, saisie);
+    modalChamps.append(bloc);
+  });
+
+  modal.showModal();
+}
+
+document.querySelectorAll(".btn-choix").forEach((btn) => {
+  btn.addEventListener("click", () => ouvrirModal(btn.dataset.type));
+});
+
+modal.querySelector(".modal-close").addEventListener("click", () => modal.close());
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) modal.close();
+});
+
+modalForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const c = CHOIX[choixActuel];
+
+  const lignes = c.champs.map((ch) => {
+    const valeur = modalForm.elements[ch.id].value.trim() || "(non précisé)";
+    return ch.label + " : " + valeur;
+  });
+  const corps = "Bonjour Kanto,\n\n" + lignes.join("\n") + "\n\nCordialement.";
+
+  window.location.href =
+    "mailto:" + EMAIL +
+    "?subject=" + encodeURIComponent(c.sujet) +
+    "&body=" + encodeURIComponent(corps);
+
+  modal.close();
+});
