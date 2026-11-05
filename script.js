@@ -196,3 +196,41 @@ modalForm.addEventListener("submit", (e) => {
 
   modal.close();
 });
+
+// ==========================================
+// 6. COPIER L'ADRESSE E-MAIL
+// ==========================================
+function copierTexte(texte) {
+  // Méthode moderne (https ou localhost)
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(texte);
+  }
+
+  // Méthode de secours (fonctionne aussi en file://)
+  return new Promise((resolve, reject) => {
+    const zone = document.createElement("textarea");
+    zone.value = texte;
+    zone.setAttribute("readonly", "");
+    zone.style.position = "fixed";
+    zone.style.opacity = "0";
+    document.body.appendChild(zone);
+    zone.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(zone);
+    ok ? resolve() : reject();
+  });
+}
+
+const btnCopier = document.getElementById("copier-mail");
+const adresseMail = document.getElementById("adresse-mail");
+
+if (btnCopier && adresseMail) {
+  btnCopier.addEventListener("click", () => {
+    copierTexte(adresseMail.textContent.trim())
+      .then(() => (btnCopier.textContent = "Copié !"))
+      .catch(() => (btnCopier.textContent = "Copie impossible"))
+      .finally(() =>
+        setTimeout(() => (btnCopier.textContent = "Copier"), 2000)
+      );
+  });
+}

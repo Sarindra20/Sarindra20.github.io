@@ -324,6 +324,18 @@
               </a>
             </div>
           </div>
+
+          <div class="contact-box">
+            <p class="contact-secours">
+              Ou écrivez-moi à
+              <a href="mailto:kanto3heriniaina@gmail.com" id="adresse-mail"
+                >kanto3heriniaina@gmail.com</a
+              >
+              <button type="button" id="copier-mail" class="btn-copier">
+                Copier
+              </button>
+            </p>
+          </div>
         </div>
       </section>
     </main>
@@ -331,17 +343,21 @@
       <button class="photo-close" aria-label="Fermer">×</button>
       <img src="source/Anya2.jfif" alt="Portrait de Kanto" />
     </dialog>
-    <dialog id="contact-modal" class="contact-modal" aria-labelledby="modal-titre">
-  <div class="modal-contenu">
-    <button type="button" class="modal-close" aria-label="Fermer">×</button>
-    <h3 id="modal-titre"></h3>
-    <p id="modal-intro"></p>
-    <form id="modal-form">
-      <div id="modal-champs"></div>
-      <button type="submit" class="btn-contact">Préparer mon e-mail</button>
-    </form>
-  </div>
-</dialog>
+    <dialog
+      id="contact-modal"
+      class="contact-modal"
+      aria-labelledby="modal-titre"
+    >
+      <div class="modal-contenu">
+        <button type="button" class="modal-close" aria-label="Fermer">×</button>
+        <h3 id="modal-titre"></h3>
+        <p id="modal-intro"></p>
+        <form id="modal-form">
+          <div id="modal-champs"></div>
+          <button type="submit" class="btn-contact">Préparer mon e-mail</button>
+        </form>
+      </div>
+    </dialog>
     <!-- Fichier JavaScript externe -->
     <script src="script.js"></script>
   </body>

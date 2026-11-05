@@ -646,3 +646,20 @@ h2 {
   font-weight: 600;
   background: var(--couleur-modal, var(--accent));
 }
+
+.btn-copier {
+  margin-left: 8px;
+  padding: 3px 12px;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--bordure);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.btn-copier:hover {
+  border-color: var(--accent);
+}
