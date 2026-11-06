@@ -104,7 +104,7 @@ const CHOIX = {
       { id: "nom", label: "Votre nom", type: "text", requis: true },
       { id: "projet", label: "Nom ou thème du projet", type: "text", requis: true },
       { id: "desc", label: "Description du besoin", type: "textarea", requis: true },
-      { id: "delai", label: "Délai souhaité", type: "date" },
+      { id: "delai", label: "Délai souhaité", type: "text" },
     ],
   },
   alternance: {
