@@ -104,7 +104,7 @@ const CHOIX = {
       { id: "nom", label: "Votre nom", type: "text", requis: true },
       { id: "projet", label: "Nom ou thème du projet", type: "text", requis: true },
       { id: "desc", label: "Description du besoin", type: "textarea", requis: true },
-      { id: "delai", label: "Délai souhaité", type: "text" },
+      { id: "delai", label: "Délai souhaité", type: "date" },
     ],
   },
   alternance: {
@@ -160,7 +160,7 @@ function ouvrirModal(type) {
     const saisie = document.createElement(ch.type === "textarea" ? "textarea" : "input");
     saisie.id = "champ-" + ch.id;
     saisie.name = ch.id;
-    if (ch.type !== "textarea") saisie.type = "text";
+    if (ch.type !== "textarea") saisie.type = ch.type;
     if (ch.requis) saisie.required = true;
 
     bloc.append(label, saisie);
