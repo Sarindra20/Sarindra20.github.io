@@ -663,3 +663,18 @@ h2 {
 .btn-copier:hover {
   border-color: var(--accent);
 }
+
+/* ===== LIEN WHATSAPP ===== */
+.tel_class a.lien-whatsapp {
+  align-self: center;           /* centre le mot dans la colonne des numéros */
+  margin-top: 8px;
+  color: #25d366;               /* vert de WhatsApp, pour le repérer */
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.tel_class a.lien-whatsapp:hover {
+  color: #3ddc7a;
+  text-decoration: underline;
+}
