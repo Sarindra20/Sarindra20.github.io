@@ -135,7 +135,10 @@ ul {
   height: 38px;
   border: 1px solid var(--bordure);
   border-radius: 50%;
-  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
 }
 
 .social-links a:hover {
@@ -147,7 +150,7 @@ ul {
 .social-links svg {
   width: 18px;
   height: 18px;
-  fill: currentColor;   /* le logo prend la couleur du lien */
+  fill: currentColor; /* le logo prend la couleur du lien */
 }
 .sidebar-bottom img {
   width: 56px;
@@ -343,12 +346,12 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 32px;
-  flex-wrap: wrap;            /* passe en colonne si l'écran est étroit */
+  flex-wrap: wrap; /* passe en colonne si l'écran est étroit */
   margin-top: 20px;
 }
 
 .contact-actions .btn-contact {
-  margin-top: 0;              /* annule l'ancien espace au-dessus du bouton */
+  margin-top: 0; /* annule l'ancien espace au-dessus du bouton */
 }
 
 .tel_class {
@@ -356,7 +359,7 @@ h2 {
   flex-direction: column;
   gap: 2px;
   padding-left: 32px;
-  border-left: 1px solid var(--bordure);   /* trait de séparation */
+  border-left: 1px solid var(--bordure); /* trait de séparation */
   text-align: left;
 }
 
@@ -368,7 +371,7 @@ h2 {
 .tel_class a {
   display: flex;
   align-items: center;
-  gap: 10px;                 /* espace entre le drapeau et le numéro */
+  gap: 10px; /* espace entre le drapeau et le numéro */
   color: var(--texte);
   font-weight: 500;
 }
@@ -377,7 +380,7 @@ h2 {
   width: 24px;
   height: 16px;
   border-radius: 2px;
-  border: 1px solid var(--bordure);   /* le blanc reste visible sur fond sombre */
+  border: 1px solid var(--bordure); /* le blanc reste visible sur fond sombre */
   flex-shrink: 0;
 }
 
@@ -431,6 +434,7 @@ h2 {
   .footer-mobile .social-links {
     margin-bottom: 0;
   }
+  
   main {
     margin-left: 0;
     padding: 32px 20px;
@@ -446,7 +450,7 @@ h2 {
     height: auto;
   }
 
-    .project > a {
+  .project > a {
     width: 100%;
   }
 }
@@ -470,11 +474,11 @@ h2 {
 }
 
 .photo-modal {
-  margin: auto;          /* nécessaire : ton reset "* { margin: 0 }" le décale sinon */
+  margin: auto; /* nécessaire : ton reset "* { margin: 0 }" le décale sinon */
   padding: 0;
   border: none;
   background: transparent;
-  overflow: visible;     /* laisse le bouton de fermeture dépasser du cadre */
+  overflow: visible; /* laisse le bouton de fermeture dépasser du cadre */
 }
 
 .photo-modal::backdrop {
@@ -503,7 +507,9 @@ h2 {
   font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .photo-close:hover,
@@ -538,7 +544,9 @@ h2 {
   font-weight: 600;
   color: #0d1117;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .btn-choix:hover {
@@ -550,13 +558,25 @@ h2 {
   outline-offset: 3px;
 }
 
-.btn-projet     { background: #58a6ff; }
-.btn-alternance { background: #a371f7; }
-.btn-stage      { background: #3fb950; }
+.btn-projet {
+  background: #58a6ff;
+}
+.btn-alternance {
+  background: #a371f7;
+}
+.btn-stage {
+  background: #3fb950;
+}
 
-.btn-projet:hover     { box-shadow: 0 6px 18px rgba(88, 166, 255, 0.35); }
-.btn-alternance:hover { box-shadow: 0 6px 18px rgba(163, 113, 247, 0.35); }
-.btn-stage:hover      { box-shadow: 0 6px 18px rgba(63, 185, 80, 0.35); }
+.btn-projet:hover {
+  box-shadow: 0 6px 18px rgba(88, 166, 255, 0.35);
+}
+.btn-alternance:hover {
+  box-shadow: 0 6px 18px rgba(163, 113, 247, 0.35);
+}
+.btn-stage:hover {
+  box-shadow: 0 6px 18px rgba(63, 185, 80, 0.35);
+}
 
 /* ===== FENÊTRE DU FORMULAIRE ===== */
 .contact-modal {
@@ -675,9 +695,9 @@ h2 {
 
 /* ===== LIEN WHATSAPP ===== */
 .tel_class a.lien-whatsapp {
-  align-self: center;           /* centre le mot dans la colonne des numéros */
+  align-self: center; /* centre le mot dans la colonne des numéros */
   margin-top: 8px;
-  color: #25d366;               /* vert de WhatsApp, pour le repérer */
+  color: #25d366; /* vert de WhatsApp, pour le repérer */
   font-size: 0.9rem;
   font-weight: 600;
   text-align: center;
