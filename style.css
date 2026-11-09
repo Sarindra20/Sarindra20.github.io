@@ -202,6 +202,10 @@ section {
   margin-top: 64px;
 }
 
+.dates{
+  color: var(--accent);
+}
+
 h2 {
   font-size: 1.8rem;
   margin-bottom: 24px;
@@ -706,4 +710,41 @@ h2 {
 .tel_class a.lien-whatsapp:hover {
   color: #3ddc7a;
   text-decoration: underline;
+}
+
+/* ===== BOUTON « VOIR LE CODE » ===== */
+.project-liens {
+  margin-top: 14px;
+}
+
+.btn-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: transparent;
+  color: var(--texte);
+  border: 1px solid var(--bordure);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-code svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;   /* le logo prend la couleur du texte */
+}
+
+.btn-code:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.btn-code:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
