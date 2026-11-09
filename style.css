@@ -10,6 +10,40 @@
   --accent-hover: #1f6feb;
   --largeur-barre: 240px;
 }
+/* ===== THÈME CLAIR ===== */
+:root {
+  --texte-sur-accent: #0d1117;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --fond: #f6f8fa;
+  --fond-barre: #ffffff;
+  --carte: #ffffff;
+  --bordure: #d0d7de;
+  --texte: #1f2328;
+  --texte-doux: #59636e;
+  --accent: #0969da;
+  --accent-hover: #0550ae;
+  --texte-sur-accent: #ffffff;
+  color-scheme: light;
+}
+
+[data-theme="light"] .btn-contact:hover {
+  background: var(--accent-hover);
+}
+
+[data-theme="light"] .tel_class a.lien-whatsapp {
+  color: #128c7e;               /* le vert clair serait peu lisible sur fond blanc */
+}
+
+[data-theme="light"] .tel_class a.lien-whatsapp:hover {
+  color: #0b6b5f;
+}
+
+#modal-form .btn-contact {
+  color: #0d1117;               /* le bouton du formulaire garde un texte foncé sur sa couleur pastel */
+}
 .span {
   color: #1f6feb;
 }
@@ -169,21 +203,102 @@ main {
 }
 
 .hero-section h1 {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  line-height: 1.2;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
   color: var(--texte);
 }
-
 .subtitle {
   color: var(--accent);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
   margin-bottom: 20px;
-  min-height: 1.6rem; /* Empêche le texte de sauter pendant l'animation */
+  min-height: 1.8rem;          /* évite que la page saute quand le texte change */
+}
+/* ===== EN-TÊTE AMÉLIORÉ ===== */
+.hero-hello {
+  color: var(--texte-doux);
+  font-size: 1.05rem;
+  margin-bottom: 2px;
 }
 
+.curseur {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: clignote 1s steps(1) infinite;
+}
+
+@keyframes clignote {
+  50% { opacity: 0; }
+}
+
+.hero-infos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hero-infos li {
+  padding: 4px 14px;
+  border: 1px solid var(--bordure);
+  border-radius: 999px;
+  color: var(--texte-doux);
+  font-size: 0.85rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn-principal {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 22px;
+  background: var(--accent);
+  color: var(--texte-sur-accent, #0d1117);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-principal:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(88, 166, 255, 0.3);
+}
+
+/* le bouton CV devient le bouton secondaire de l'en-tête */
+.hero-actions .btn-cv {
+  background: transparent;
+  color: var(--texte);
+  border: 1px solid var(--bordure);
+}
+
+.hero-actions .btn-cv:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+.devise-bloc {
+  margin-top: 32px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curseur { animation: none; }
+}
 .bio {
   color: var(--texte-doux);
   font-size: 1.05rem;
@@ -334,7 +449,7 @@ h2 {
   display: inline-block;
   margin-top: 16px;
   background: var(--accent);
-  color: #0d1117;
+    color: var(--texte-sur-accent);
   padding: 10px 24px;
   border-radius: 6px;
   font-weight: 600;
@@ -747,4 +862,230 @@ h2 {
 .btn-code:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+/* ===== BOUTON THÈME ===== */
+.theme-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 150;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--bordure);
+  background: var(--carte);
+  color: var(--texte);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ===== BOUTON TÉLÉCHARGER LE CV ===== */
+.hero-cv {
+  margin-top: 20px;
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  background: var(--accent);
+  color: var(--texte-sur-accent, #0d1117);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.btn-cv svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-cv:hover {
+  background: #79c0ff;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(88, 166, 255, 0.3);
+}
+
+.btn-cv:focus-visible {
+  outline: 2px solid var(--texte);
+  outline-offset: 3px;
+}
+/* ===== EN-TÊTE ===== */
+.hero-section {
+  padding-bottom: 8px;
+}
+
+.hero-hello {
+  color: var(--texte-doux);
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.hero-section h1 {
+  font-size: clamp(2.8rem, 8vw, 4.4rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+/* prénom en dégradé bleu → violet */
+.hero-section h1 .span {
+  background: linear-gradient(90deg, var(--accent), #a371f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.subtitle {
+  color: var(--texte);
+  font-weight: 500;
+  font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+  min-height: 1.9rem;
+  margin-bottom: 18px;
+}
+
+.curseur {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: clignote 1s steps(1) infinite;
+}
+
+@keyframes clignote {
+  50% { opacity: 0; }
+}
+
+.bio {
+  max-width: 58ch;
+  margin-bottom: 0;
+}
+
+/* pastilles d'information */
+.hero-infos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-infos li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 999px;
+  color: var(--texte-doux);
+  font-size: 0.85rem;
+}
+
+.hero-infos li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero-infos li:last-child::before {
+  background: #3fb950;          /* point vert pour « à la recherche d'un stage » */
+}
+
+/* boutons d'action */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn-principal,
+.hero-actions .btn-cv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-principal {
+  background: var(--accent);
+  color: var(--texte-sur-accent, #0d1117);
+}
+
+.btn-principal:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(88, 166, 255, 0.3);
+}
+
+.hero-actions .btn-cv {
+  background: transparent;
+  color: var(--texte);
+  border-color: var(--bordure);
+}
+
+.hero-actions .btn-cv svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-actions .btn-cv:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: none;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* bloc « Travaillons ensemble » */
+.devise-bloc {
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--bordure);
+}
+
+.devise-titre {
+  margin-bottom: 12px;
+  color: var(--texte-doux);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .hero-actions .btn-principal,
+  .hero-actions .btn-cv {
+    flex: 1 1 100%;             /* boutons pleine largeur sur petit écran */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curseur { animation: none; }
 }

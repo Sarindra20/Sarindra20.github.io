@@ -18,10 +18,27 @@
     <title>
       Kanto | Étudiante en Administration Système, Réseau et Sécurité
     </title>
+    <script>
+      (function () {
+        var theme = "dark";
+        try {
+          theme = localStorage.getItem("theme") || "dark";
+        } catch (e) {}
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <link rel="icon" type="image/png" href="source/ka.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <button
+      type="button"
+      id="theme-toggle"
+      class="theme-toggle"
+      aria-label="Passer en mode clair"
+    >
+      ☀️
+    </button>
     <!-- ===== BARRE LATÉRALE ===== -->
     <aside class="sidebar">
       <div class="sidebar-top">
@@ -69,32 +86,46 @@
 
     <!-- ===== CONTENU PRINCIPAL ===== -->
     <main>
-      <header id="accueil" class="hero-section">
-        <h1>
-          <span class="span">Kanto</span> | Administration réseau, système et
-          sécurité
-        </h1>
-        <p class="subtitle" id="typing-text"></p>
-        <p class="bio">
-          Je suis Kanto, étudiante en deuxième année de licence à l'École
-          Nationale d'Informatique de Fianarantsoa, dans le parcours
-          <strong>IG</strong> (Informatique Générale). Passionnée par
-          l'infrastructure réseau et la sécurité, je me spécialise dans
-          l'installation, la supervision et la surveillance des systèmes.
-        </p>
-        <div class="devise-bloc">
-          <p class="devise-titre">Travaillons ensemble :</p>
-          <div class="devise-boutons">
-            <button class="btn-choix btn-projet" data-type="projet">
-              Projet
-            </button>
-            <button class="btn-choix btn-alternance" data-type="alternance">
-              Alternance
-            </button>
-            <button class="btn-choix btn-stage" data-type="stage">Stage</button>
-          </div>
-        </div>
-      </header>
+     <header id="accueil" class="hero-section">
+  <p class="hero-hello">Bonjour, je suis</p>
+  <h1><span class="span">Kanto</span></h1>
+
+  <p class="subtitle">
+    <span id="typing-text"></span><span class="curseur" aria-hidden="true"></span>
+  </p>
+
+  <p class="bio">
+    Étudiante en deuxième année de licence à l'École Nationale d'Informatique
+    de Fianarantsoa, parcours <strong>IG</strong> (Informatique Générale).
+    Je m'intéresse à l'infrastructure réseau, à la supervision et à la
+    sécurité des systèmes.
+  </p>
+
+  <ul class="hero-infos">
+    <li>L3 Informatique</li>
+    <li>ENI Fianarantsoa</li>
+    <li>À la recherche d'un stage</li>
+  </ul>
+
+  <div class="hero-actions">
+    <a href="#projets" class="btn-principal">Voir mes projets</a>
+    <a href="source/CV.pdf" download="CV-Kanto.pdf" class="btn-cv">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Télécharger mon CV
+    </a>
+  </div>
+
+  <div class="devise-bloc">
+    <p class="devise-titre">Travaillons ensemble :</p>
+    <div class="devise-boutons">
+      <button class="btn-choix btn-projet" data-type="projet">Projet</button>
+      <button class="btn-choix btn-alternance" data-type="alternance">Alternance</button>
+      <button class="btn-choix btn-stage" data-type="stage">Stage</button>
+    </div>
+  </div>
+</header>
 
       <section id="apropos" class="reveal">
         <h2>À propos</h2>

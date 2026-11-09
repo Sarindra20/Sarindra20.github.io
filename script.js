@@ -1,25 +1,50 @@
 // ==========================================
-// 1. EFFET MACHINE À ÉCRIRE (TYPING EFFECT)
+// 1. EFFET MACHINE À ÉCRIRE (PLUSIEURS PHRASES)
 // ==========================================
 const textElement = document.getElementById("typing-text");
-const phrase = "Étudiante en Informatique – Administration Système & Réseau";
-let index = 0;
+const phrases = [
+  "Étudiante en administration système et réseau et sécurité",
+  "Supervision et détection d'attaques avec Wazuh",
+  "Développement d'outils en Python et Flutter",
+];
 
-function typeWriter() {
-  if (index < phrase.length) {
-    textElement.textContent += phrase.charAt(index);
-    index++;
-    setTimeout(typeWriter, 50); // Vitesse de frappe en millisecondes
+let indexPhrase = 0;
+let indexLettre = 0;
+let enEffacement = false;
+
+function machineAEcrire() {
+  const phrase = phrases[indexPhrase];
+
+  if (!enEffacement) {
+    indexLettre++;
+    textElement.textContent = phrase.slice(0, indexLettre);
+    if (indexLettre === phrase.length) {
+      enEffacement = true;
+      return setTimeout(machineAEcrire, 1800);   // pause quand la phrase est complète
+    }
+    return setTimeout(machineAEcrire, 55);
   }
+
+  indexLettre--;
+  textElement.textContent = phrase.slice(0, indexLettre);
+  if (indexLettre === 0) {
+    enEffacement = false;
+    indexPhrase = (indexPhrase + 1) % phrases.length;
+    return setTimeout(machineAEcrire, 400);
+  }
+  setTimeout(machineAEcrire, 28);
 }
 
-// Lancement de l'effet au chargement de la page
 document.addEventListener("DOMContentLoaded", () => {
-  if (textElement) {
-    setTimeout(typeWriter, 400); // Petit délai avant de démarrer
-  }
-});
+  if (!textElement) return;
 
+  // respecte les personnes qui ont désactivé les animations
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    textElement.textContent = phrases[0];
+    return;
+  }
+  setTimeout(machineAEcrire, 400);
+});
 
 // ==========================================
 // 2. APPARITION DES SECTIONS AU DÉFILEMENT (SCROLL REVEAL)
@@ -232,5 +257,34 @@ if (btnCopier && adresseMail) {
       .finally(() =>
         setTimeout(() => (btnCopier.textContent = "Copier"), 2000)
       );
+  });
+}
+
+// ==========================================
+// 7. MODE CLAIR / MODE SOMBRE
+// ==========================================
+const themeBtn = document.getElementById("theme-toggle");
+
+function appliquerTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  if (themeBtn) {
+    themeBtn.textContent = theme === "light" ? "🌙" : "☀️";
+    themeBtn.setAttribute(
+      "aria-label",
+      theme === "light" ? "Passer en mode sombre" : "Passer en mode clair"
+    );
+  }
+}
+
+appliquerTheme(document.documentElement.getAttribute("data-theme") || "dark");
+
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    const nouveau =
+      document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    appliquerTheme(nouveau);
+    try {
+      localStorage.setItem("theme", nouveau);
+    } catch (e) {}
   });
 }
